@@ -5,8 +5,8 @@ import { registerUser } from '../../services/thunk/user';
 import { useDispatch } from '../../services/store';
 
 export const Register: FC = () => {
-  const [userName, setUserName] = useState<string>('');
-  const [email, setEmail] = useState<string>('');
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState<string>('');
   const dispatch = useDispatch();
 
