@@ -29,17 +29,25 @@ export const ingredientsSlice = createSlice({
       .addCase(fetchIngredients.rejected, (state, action) => {
         state.status = RequestStatus.Failed;
       });
-  },
-  selectors: {
-    getIngredients: (state: TIngredientsState) => state.ingredients,
-    getIngredientById: (state: TIngredientsState, id: string) => {
-      state.ingredients?.find((ingredient) => ingredient._id === id) || null;
-    },
-    getIngredientsStatus: (state: TIngredientsState) => state.status
   }
 });
 
-export const ingredientsActions = ingredientsSlice.actions;
-export const ingredientsSelectors = ingredientsSlice.selectors;
+export const getIngredients = (state: { ingredients: TIngredientsState }) =>
+  state.ingredients.ingredients;
+export const getIngredientById = (
+  state: { ingredients: TIngredientsState },
+  id: string
+) =>
+  state.ingredients.ingredients?.find((ingredient) => ingredient._id === id) ||
+  null;
+export const getIngredientsStatus = (state: {
+  ingredients: TIngredientsState;
+}) => state.ingredients.status;
 
 export const ingredientsReducer = ingredientsSlice.reducer;
+
+export const ingredientsSelectors = {
+  getIngredients,
+  getIngredientById,
+  getIngredientsStatus
+};
