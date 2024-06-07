@@ -1,17 +1,8 @@
-import { RequestStatus, TIngredient } from '@utils-types';
-import { ingredientsReducer } from './ingredientsSlice';
-import { fetchIngredients } from '../thunk/ingredients';
-import { TFeedState, feedReducer } from './feedSlice';
+import { RequestStatus } from '@utils-types';
+import { feedReducer, initialState } from './feedSlice';
 import { fetchFeeds } from '../thunk/feed';
 
 describe('feedSlice', () => {
-  const initialState: TFeedState = {
-    orders: [],
-    total: 0,
-    totalToday: 0,
-    status: RequestStatus.Idle
-  };
-
   it('should set RequestStatus to Loading when fetchFeeds pending', () => {
     const actualState = feedReducer(initialState, fetchFeeds.pending(''));
 

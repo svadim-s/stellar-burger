@@ -1,13 +1,8 @@
 import { RequestStatus, TOrder } from '@utils-types';
-import { TOrdersState, ordersReducer } from './ordersSlice';
+import { TOrdersState, initialState, ordersReducer } from './ordersSlice';
 import { fetchOrders } from '../thunk/orders';
 
 describe('ordersSlice', () => {
-  const initialState: TOrdersState = {
-    orders: [],
-    status: RequestStatus.Idle
-  };
-
   it('should set RequestStatus to Loading when fetchOrders pending', () => {
     const actualState = ordersReducer(initialState, fetchOrders.pending(''));
 

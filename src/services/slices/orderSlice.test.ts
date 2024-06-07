@@ -1,13 +1,13 @@
 import { RequestStatus, TOrder } from '@utils-types';
-import { TOrderState, orderActions, orderReducer } from './orderSlice';
+import {
+  TOrderState,
+  initialState,
+  orderActions,
+  orderReducer
+} from './orderSlice';
 import { fetchOrderByNumber, orderBurger } from '../thunk/order';
 
 describe('orderSlice', () => {
-  const initialState: TOrderState = {
-    info: null,
-    status: RequestStatus.Idle
-  };
-
   it('should set RequestStatus to Loading when orderBurger pending', () => {
     const actualState = orderReducer(initialState, orderBurger.pending('', []));
     expect(actualState).toEqual({

@@ -1,15 +1,11 @@
 import {
   burgerConstructorActions,
-  burgerConstructorReducer
+  burgerConstructorReducer,
+  initialState
 } from './burgerConstructorSlice';
 import { TIngredient } from '@utils-types';
 
 describe('burgerConstructorSlice', () => {
-  const initialState = {
-    bun: null,
-    ingredients: []
-  };
-
   const bun: TIngredient = {
     _id: '1',
     name: 'Bun',

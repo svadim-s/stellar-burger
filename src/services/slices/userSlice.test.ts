@@ -1,5 +1,10 @@
 import { RequestStatus, TUser } from '@utils-types';
-import { TUserState, userActions, userReducer } from './userSlice';
+import {
+  TUserState,
+  initialState,
+  userActions,
+  userReducer
+} from './userSlice';
 import {
   fetchUser,
   loginUser,
@@ -10,12 +15,6 @@ import {
 import { TLoginData, TRegisterData } from '@api';
 
 describe('userSlice', () => {
-  const initialState: TUserState = {
-    isAuthChecked: false,
-    user: null,
-    status: RequestStatus.Idle
-  };
-
   const user: TUser = {
     email: 'testuser@example.com',
     name: 'Test User'

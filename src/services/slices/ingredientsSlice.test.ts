@@ -1,13 +1,8 @@
 import { RequestStatus, TIngredient } from '@utils-types';
-import { TIngredientsState, ingredientsReducer } from './ingredientsSlice';
+import { ingredientsReducer, initialState } from './ingredientsSlice';
 import { fetchIngredients } from '../thunk/ingredients';
 
 describe('ingredientsSlice', () => {
-  const initialState: TIngredientsState = {
-    ingredients: null,
-    status: RequestStatus.Idle
-  };
-
   it('should set RequestStatus to Loading when fetchIngredients pending', () => {
     const actualState = ingredientsReducer(
       initialState,

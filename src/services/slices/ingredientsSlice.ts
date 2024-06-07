@@ -8,7 +8,7 @@ export interface TIngredientsState {
   status: RequestStatus;
 }
 
-const initialState: TIngredientsState = {
+export const initialState: TIngredientsState = {
   ingredients: null,
   status: RequestStatus.Idle
 };
