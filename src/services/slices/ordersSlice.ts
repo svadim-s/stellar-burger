@@ -8,7 +8,7 @@ export interface TOrdersState {
   status: RequestStatus;
 }
 
-const initialState: TOrdersState = {
+export const initialState: TOrdersState = {
   orders: [],
   status: RequestStatus.Idle
 };
